@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'h93frontend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E09A5AD01DE54FBE91EF8AF00CA41487 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF8EE7C6943A467295F71AEA5CE406A2 }}
           package: .
