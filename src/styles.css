@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-center{
+    text-align: center;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.example-icon {
+    padding: 0 14px;
+  }
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-width {
+  width: 100%;
+}
+
+/*HOME*/
+.mt20 {
+  margin-top: 20px !important;
+}
+
+/*BOTON INICIAR SESION*/
+.mat-raised-button.mat-primary {
+  background-color: skyblue;
+  color: #fff;
+}
+
+.mat-raised-button.mat-accent {
+  background-color: lightcoral;
+  color: #fff;
+}
+
+/*INICIAR SESION Y REGISTRAR*/
+.mr20 {
+  margin-right: 20px !important;
+}
+.ml70 {
+  margin-left: 70px !important;
+}
+.ml30 {
+  margin-left: 30px !important;
+}
+
+/*NAVBAR*/
+/* .mat-toolbar.mat-primary {
+  background: #00c3ff;
+  color: #fff;
+} */
