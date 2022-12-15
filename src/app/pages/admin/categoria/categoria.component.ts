@@ -17,8 +17,7 @@ export class CategoriaComponent implements OnInit {
       (dato:any) => {
         this.categorias = dato;
         console.log(this.categorias);
-      }
-    );
+      });
   }
 
 }

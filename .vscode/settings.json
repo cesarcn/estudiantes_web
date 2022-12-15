@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/3f349b1f-60e9-4c78-98b6-23d9826d0697/AppServices/subscriptions/3f349b1f-60e9-4c78-98b6-23d9826d0697/resourceGroups/certusdev/providers/Microsoft.Web/sites/h93frontend",
+    "appService.deploySubpath": "dist\\sistema-h93"
+}

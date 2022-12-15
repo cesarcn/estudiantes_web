@@ -16,6 +16,6 @@ export class SliderbarComponent implements OnInit {
   public logout(){
     this.login.logout();
     window.location.reload();
-  }  
+  }
 
 }

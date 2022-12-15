@@ -1,2 +1,2 @@
-let urlbase = 'https://proyectoportalestudiantes.azurewebsites.net/apirest'
+let urlbase = 'https://backend-h93.azurewebsites.net/apirest'
 export default urlbase;

@@ -8,12 +8,14 @@ import urlbase from './helper';
 })
 export class LoginService {
 
-  public loginStatusSubject = new Subject<Boolean>;
+  public loginStatusSubject = new Subject<boolean>();
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient) {
+    
+  }
 
   public generartoken (datalogin:any){
-    return this.httpClient.post(`${urlbase}/autenticacion/generartoken`, datalogin);
+    return this.httpClient.post(`${urlbase}/autenticacion/generartoken`,datalogin);
   }
 
   public loginuser (token:any){
@@ -30,9 +32,9 @@ export class LoginService {
   }
 
   public gettoken(){
-    localStorage.getItem('token');
-    return true;
+    localStorage.getItem('token')
   }
+
 
   public setuser(user:any){
     localStorage.setItem('user',JSON.stringify(user));
@@ -41,7 +43,7 @@ export class LoginService {
   public getuser(){
     let userStr = localStorage.getItem('user');
 
-    if(userStr !=null){
+    if (userStr != null){
       return JSON.parse(userStr);
     }else{
         this.logout();
@@ -52,13 +54,13 @@ export class LoginService {
   public logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    return null;
+    return true;
   }
 
-  public isloggin(){
+  public isloggin (){
     let tokenStr = localStorage.getItem('token');
 
-    if (tokenStr ==null || tokenStr == undefined || tokenStr == ''){
+    if (tokenStr == null || tokenStr == undefined || tokenStr == ''){
       return false;
     }else{
       return true;
@@ -68,7 +70,7 @@ export class LoginService {
   public getUserRol(){
     let userrol = this.getuser();
     return userrol.authorities[0].authority;
-  }
 
+  }
 
 }
