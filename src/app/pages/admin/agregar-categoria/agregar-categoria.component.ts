@@ -11,35 +11,35 @@ import Swal from 'sweetalert2';
 })
 export class AgregarCategoriaComponent implements OnInit {
 
-  categoria={
-    titulo : '',
-    descripcion:''
+  categoria = {
+    titulo: '',
+    descripcion: ''
   }
 
-  constructor(private catservice:CategoriaService,private router:Router, private snack:MatSnackBar) { }
+  constructor(private catservice: CategoriaService, private router: Router, private snack: MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
-  formSubmit(){
-    if(this.categoria.titulo.trim() == '' || this.categoria.titulo == null){
-      this.snack.open("El titulo es requerido !!" ,'',{duration:3000})
+  formSubmit() {
+    if (this.categoria.titulo.trim() == "" || this.categoria.titulo == null) {
+      this.snack.open("El titulo es requerido !!", '', { duration: 3000 })
       return;
     }
 
-    if(this.categoria.descripcion.trim() == '' || this.categoria.descripcion == null){
-      this.snack.open("El descripcion es requerido !!" ,'',{duration:3000})
+    if (this.categoria.descripcion.trim() == "" || this.categoria.descripcion == null) {
+      this.snack.open("El titulo es requerido !!", '', { duration: 3000 })
       return;
     }
 
     this.catservice.agregarCategoria(this.categoria).subscribe(
-      (dato:any) => {
-         Swal.fire("La Categoria fue agregada con exito","success");
-         this.router.navigate(['/admin/categoria-view']);
+      (data:any) =>{
+         Swal.fire('Agregando categoría','La categoría fue agregada con exito','success');
+         this.router.navigate(['/admin/categoria-view'])
       }
     )
 
-
   }
+
 
 }

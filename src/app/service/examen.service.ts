@@ -1,5 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import urlbase from './helper';
 
 @Injectable({
@@ -56,5 +56,6 @@ export class ExamenService {
       headers: new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')})
   });
   }
+
 
 }

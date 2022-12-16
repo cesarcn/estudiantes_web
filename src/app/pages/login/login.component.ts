@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -13,44 +14,47 @@ export class LoginComponent implements OnInit {
   constructor(private snack:MatSnackBar, private logService:LoginService, private router:Router) { }
 
   public datalogin ={
-    username : '',
-    password : '',
+    username :'',
+    password :''
   }
 
   ngOnInit(): void {
   }
 
-  formSubmit(){
-    if(this.datalogin.username.trim() == "" || this.datalogin.username.trim() == null){
-      this.snack.open("Debe ingresar un Usuario", 'Aceptar',{duration:3000})
-      return;
+  loginSubmit (){
+    if(this.datalogin.username.trim() == "" || this.datalogin.username == null){
+      this.snack.open("El usuario debe ingresar un Usuario", "Aceptar",{duration:3000});
+      return
     }
 
-    if(this.datalogin.password.trim() == "" || this.datalogin.password.trim() == null){
-      this.snack.open("Debe ingresar una Contraseña", 'Aceptar',{duration:3000})
-      return;
+    if(this.datalogin.password.trim() == "" || this.datalogin.password == null){
+      this.snack.open("El usuario debe ingresar una contraseña", "Aceptar",{duration:3000});
+      return
     }
 
     this.logService.generartoken(this.datalogin).subscribe(
       (data:any)=>{
         console.log(data);
-        this.logService.loginuser(data.token);
+        
+        this.logService.loginUser(data.token);
         this.logService.getCurrentUser().subscribe((user:any)=>{
-          this.logService.setuser(user);
+          this.logService.setUser(user);
           console.log(user);
-
-
-          if (this.logService.getUserRol() == 'administrador'){
+          
+          if (this.logService.getUserRol() == 'Administradores'){
             this.router.navigate(["/admin"]);
-            this.logService.loginStatusSubject.next(true);
-          }else if (this.logService.getUserRol() == 'Cliente'){
-            this.router.navigate(["/listarClientes"]);
-            this.logService.loginStatusSubject.next(true);
+          } else if (this.logService.getUserRol() == 'Estudiantes'){
+          this.router.navigate(["/listarClientes"]);
           }
         })
+        Swal.fire('Iniciando sesión','Inicio de sesión correctamente','success');
+
+        })
       }
-    )
-  }
+      
 
 
+      
 }
+
+

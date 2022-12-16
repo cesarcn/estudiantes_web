@@ -1,2 +1,2 @@
-let urlbase = 'https://backend-h93.azurewebsites.net/apirest'
-export default urlbase;
+let urlbase = 'http://localhost:8080/apirest'
+export default urlbase

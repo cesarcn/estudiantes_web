@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -12,14 +12,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {FormsModule } from '@angular/forms';
-import {MatCardModule} from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import {MatIconModule} from '@angular/material/icon';
-import { ListarclientesComponent } from './pages/listarclientes/listarclientes.component';
-import { ModuloadminitrativoComponent } from './pages/moduloadminitrativo/moduloadminitrativo.component';
-import { BienvenidoComponent } from './pages/admin/bienvenido/bienvenido.component';
+import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
+/* import { ListarclientesComponent } from './pages/student/listarclientes.component'; */
+import { ModuloadministrativoComponent } from './pages/moduloadministrativo/moduloadministrativo.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { BienvenidoComponent } from './pages/admin/bienvenido/bienvenido.component';
 import { SliderbarComponent } from './pages/admin/sliderbar/sliderbar.component';
 import {MatListModule} from '@angular/material/list';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
@@ -32,6 +34,11 @@ import { PreguntaComponent } from './pages/admin/pregunta/pregunta.component';
 import { AgregarPreguntaComponent } from './pages/admin/agregar-pregunta/agregar-pregunta.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import { ListaEstudianteComponent } from './pages/admin/lista-estudiante/lista-estudiante.component';
+
+
+
+
 
 
 @NgModule({
@@ -41,8 +48,8 @@ import {MatSelectModule} from '@angular/material/select';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    ListarclientesComponent,
-    ModuloadminitrativoComponent,
+    ModuloadministrativoComponent,
+    AdminComponent,
     BienvenidoComponent,
     SliderbarComponent,
     DashboardComponent,
@@ -52,25 +59,28 @@ import {MatSelectModule} from '@angular/material/select';
     ExamenComponent,
     AgregarExamenComponent,
     PreguntaComponent,
-    AgregarPreguntaComponent
+    AgregarPreguntaComponent,
+    ListaEstudianteComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
     MatSnackBarModule,
     MatToolbarModule,
+    HttpClientModule,
     FormsModule,
-    MatCardModule,
     MatIconModule,
+    MatCardModule,
     MatDividerModule,
     MatListModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

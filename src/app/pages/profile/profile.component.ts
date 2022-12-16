@@ -13,8 +13,8 @@ export class ProfileComponent implements OnInit {
   constructor(private login:LoginService) { }
 
   ngOnInit(): void {
-    this.user = this.login.getuser();
-
+    this.user = this.login.getUser();
+    console.log(this.user);
   }
 
 }

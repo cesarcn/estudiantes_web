@@ -8,19 +8,31 @@ import urlbase from './helper';
 })
 export class LoginService {
 
-  public loginStatusSubject = new Subject<boolean>();
+  public loginStatusSUbject = new Subject<boolean>;
 
-  constructor(private httpClient:HttpClient) {
-    
-  }
+  constructor(private httpClient:HttpClient) {}
 
-  public generartoken (datalogin:any){
-    return this.httpClient.post(`${urlbase}/autenticacion/generartoken`,datalogin);
-  }
+    public generartoken(datalogin:any){
+      return this.httpClient.post(`${urlbase}/autenticacion/generartoken`, datalogin)
+    }
 
-  public loginuser (token:any){
-    localStorage.setItem('token',token);
+
+  public loginUser(token:any){
+    localStorage.setItem('token', token);
     return true;
+  }
+
+  
+
+  public getUser(){
+   let  userStr = localStorage.getItem('user');
+
+   if(userStr != null){
+      return JSON.parse(userStr);
+   }else{
+      this.logout();
+      return null
+   }
   }
 
   public getCurrentUser (){
@@ -35,42 +47,28 @@ export class LoginService {
     localStorage.getItem('token')
   }
 
-
-  public setuser(user:any){
-    localStorage.setItem('user',JSON.stringify(user));
-  }
-
-  public getuser(){
-    let userStr = localStorage.getItem('user');
-
-    if (userStr != null){
-      return JSON.parse(userStr);
-    }else{
-        this.logout();
-        return null
-    }
-  }
-
   public logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    return true;
+    return null;
   }
 
-  public isloggin (){
+  public islogin(){
     let tokenStr = localStorage.getItem('token');
 
-    if (tokenStr == null || tokenStr == undefined || tokenStr == ''){
+    if(tokenStr == null || tokenStr == undefined || tokenStr == ''){
       return false;
     }else{
       return true;
     }
   }
 
-  public getUserRol(){
-    let userrol = this.getuser();
-    return userrol.authorities[0].authority;
-
+  public setUser(user:any){
+    localStorage.setItem('user', JSON.stringify(user))
   }
 
+  public getUserRol(){
+    let userrol = this.getUser();
+    return userrol.authorities[0].authority;
+  }
 }

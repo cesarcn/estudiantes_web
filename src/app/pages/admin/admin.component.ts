@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
-  selector: 'app-sliderbar',
-  templateUrl: './sliderbar.component.html',
-  styleUrls: ['./sliderbar.component.css']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
 })
-export class SliderbarComponent implements OnInit {
+export class AdminComponent implements OnInit {
 
   constructor(private login:LoginService) { }
 
@@ -16,6 +16,6 @@ export class SliderbarComponent implements OnInit {
   public logout(){
     this.login.logout();
     window.location.reload();
-  }  
+  }
 
 }

@@ -15,10 +15,9 @@ export class ExamenComponent implements OnInit {
     this.exaservice.listarExamen().subscribe(
       (dato:any)=>{
         this.examenes=dato;
+        console.log(this.examenes)
       }
     )
   
   }
-
-  
 }

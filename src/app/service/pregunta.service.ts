@@ -50,5 +50,4 @@ export class PreguntaService {
       headers: new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')})
   });
   }
-
 }

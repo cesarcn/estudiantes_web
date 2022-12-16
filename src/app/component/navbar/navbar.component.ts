@@ -8,21 +8,17 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class NavbarComponent implements OnInit {
 
+  isloginEst = false;
+  user:any = null;
 
-  isloginEst=false;
-  user:any=null;
+  constructor(private login: LoginService) { }
 
-  constructor(private login:LoginService) { }
-
-   ngOnInit(): void {
-    ;
-    this.isloginEst = this.login.isloggin();
-    this.user = this.login.getuser();
-    console.log(this.isloginEst);
-    console.log(this.user);
-    this.login.loginStatusSubject.asObservable().subscribe(data =>{
-      this.isloginEst = this.login.isloggin();
-      this.user = this.login.getuser();
+  ngOnInit(): void {
+    this.isloginEst = this.login.islogin();
+    this.user = this.login.getUser();
+    this.login.loginStatusSUbject.asObservable().subscribe(dato =>{
+      this.isloginEst = this.login.islogin();
+      this.user = this.login.getUser();
       console.log(this.isloginEst);
     })
   }
@@ -31,6 +27,5 @@ export class NavbarComponent implements OnInit {
     this.login.logout();
     window.location.reload();
   }
-
 
 }
